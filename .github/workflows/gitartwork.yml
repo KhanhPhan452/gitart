@@ -1,0 +1,16 @@
+name: GitHub ArtWork
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run GitArtWork
+        uses: tenapi/gitartwork@main
+        with:
+          username: KhanhPhan452  # 👉 thay bằng username GitHub của bạn
+          text: KHANHPHAN            # 👉 chữ bạn muốn hiển thị
+          font: Block              # 👉 có thể đổi thành: Standard, Slant, Avatar...
