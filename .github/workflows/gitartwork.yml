@@ -4,13 +4,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  gitart:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Run GitArtWork
-        uses: tenapi/gitartwork@main
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          username: KhanhPhan452  # 👉 thay bằng username GitHub của bạn
-          text: KHANHPHAN            # 👉 chữ bạn muốn hiển thị
-          font: Block              # 👉 có thể đổi thành: Standard, Slant, Avatar...
+          node-version: 18
+
+      - name: Install GitArtWork and run it
+        run: |
+          npx gitartwork -n khanhphan452 -t "KHANHPHAN" -f Block
